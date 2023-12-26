@@ -1,25 +1,28 @@
 package com.challenge.streamingvideos.model;
 
 import com.challenge.streamingvideos.enums.Categoria;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import com.challenge.streamingvideos.enums.TipoVideo;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Document (collection = "videos")
 @Setter
 @Getter
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class VideosModel {
 
     @Id
-    private String id;
+    private String idVideo;
     private String titulo;
     private String descricao;
     private Categoria categoria;
-    private String url;
-    private Date publicacao;
+    private TipoVideo tipoVideo;
+    private String urlVideo;
+
+    private LocalDateTime publicacao;
 }
