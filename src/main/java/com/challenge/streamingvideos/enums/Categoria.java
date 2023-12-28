@@ -12,5 +12,5 @@ public enum Categoria {
     DOCUMENTARIO,
     FANTASIA,
     MUSICAL,
-    SUSPENSE;
+    SUSPENSE
 }

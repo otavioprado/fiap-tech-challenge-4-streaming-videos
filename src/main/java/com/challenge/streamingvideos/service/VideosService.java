@@ -1,25 +1,24 @@
 package com.challenge.streamingvideos.service;
 
-import com.challenge.streamingvideos.model.VideosModel;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
+import com.challenge.streamingvideos.dto.VideosDto;
+
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 public interface VideosService {
     //buscar todos
-    Mono<Page<VideosModel>> findAll(Pageable pageable);
+    Flux<VideosDto> findAll();
 
     //bucar por id
-    Mono<VideosModel> findById(String id);
+    Mono<VideosDto> findById(String id);
 
     //salvar video
-    Mono<VideosModel> save(VideosModel videosModel);
+    Mono<VideosDto> save(Mono<VideosDto> videosDtoMono);
 
     //atualizar video
-    Mono<VideosModel> update(VideosModel videosModel);
+    Mono<VideosDto> update(Mono<VideosDto> videosDtoMono,String id);
+
     //excluir video
-    Mono<VideosModel> deleteById(VideosModel videosModel);
+    Mono<Void> deleteById(String id);
 
 }
