@@ -2,13 +2,13 @@ package com.challenge.streamingvideos;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 public class StreamingVideosApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(StreamingVideosApplication.class, args);
-		System.out.println("Olá mundão de meu Deus");
 	}
 
 }
