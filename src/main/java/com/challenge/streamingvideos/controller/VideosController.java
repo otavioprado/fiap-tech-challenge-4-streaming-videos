@@ -1,19 +1,15 @@
 package com.challenge.streamingvideos.controller;
-
 import com.challenge.streamingvideos.dto.VideosDto;
-import com.challenge.streamingvideos.mapper.VideosMapper;
-import com.challenge.streamingvideos.model.VideosModel;
 import com.challenge.streamingvideos.service.VideosServiceImpl;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
 @RequestMapping("/videos")
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class VideosController {
 
     @Autowired
@@ -35,17 +31,15 @@ public class VideosController {
     }
 
     @PutMapping(value = "/{id}")
-    public Mono<VideosDto> updateVideo(@RequestBody Mono<VideosDto> videosDtoMono,@PathVariable String id ){
-        return videosService.update(videosDtoMono,id);
+    public Mono<VideosDto> updateVideo(@RequestBody Mono<VideosDto> videosDtoMono, @PathVariable String id) {
+        return videosService.update(videosDtoMono, id);
     }
 
-    @DeleteMapping
-    public Mono<Void> deleteById(@PathVariable String id){
-        return videosService.deleteById(id);
+    @DeleteMapping()
+    public Mono<Void> deletarTodos() {
+        videosService.deleteAll();
+        return videosService.deleteAll();
+
     }
-
-
-
-
 
 }
