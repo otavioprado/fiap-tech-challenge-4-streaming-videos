@@ -1,0 +1,41 @@
+{
+	"info": {
+		"_postman_id": "62246eee-227b-40ba-87dc-b723d6e8b3e1",
+		"name": "OMDB",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27681645",
+		"_collection_link": "https://warped-meteor-302132.postman.co/workspace/API-TC4-Streaming~e79bd1af-4e15-41dc-a436-b8a2d5bccdc8/collection/27681645-62246eee-227b-40ba-87dc-b723d6e8b3e1?action=share&source=collection_link&creator=27681645"
+	},
+	"item": [
+		{
+			"name": "ConsultarApiOmdb",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://www.omdbapi.com/?s=panda&apikey=e61edd15",
+					"protocol": "http",
+					"host": [
+						"www",
+						"omdbapi",
+						"com"
+					],
+					"path": [
+						""
+					],
+					"query": [
+						{
+							"key": "s",
+							"value": "panda"
+						},
+						{
+							"key": "apikey",
+							"value": "e61edd15"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
