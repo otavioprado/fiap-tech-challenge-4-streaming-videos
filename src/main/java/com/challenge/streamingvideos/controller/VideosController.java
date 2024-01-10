@@ -1,7 +1,7 @@
 package com.challenge.streamingvideos.controller;
 
 import com.challenge.streamingvideos.dto.VideosDto;
-import com.challenge.streamingvideos.service.VideosServiceImpl;
+import com.challenge.streamingvideos.usecase.VideosUsecaseImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -15,7 +15,7 @@ import reactor.core.publisher.Mono;
 public class VideosController {
 
     @Autowired
-    private VideosServiceImpl videosService;
+    private VideosUsecaseImpl videosService;
 
     @GetMapping
     public Mono<Page<VideosDto>> getVideos(Pageable pageable) {

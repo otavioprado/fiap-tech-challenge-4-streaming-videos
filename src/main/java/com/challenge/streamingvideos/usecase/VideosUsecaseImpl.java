@@ -1,4 +1,4 @@
-package com.challenge.streamingvideos.service;
+package com.challenge.streamingvideos.usecase;
 
 import com.challenge.streamingvideos.dto.VideosDto;
 import com.challenge.streamingvideos.mapper.VideosMapper;
@@ -12,7 +12,7 @@ import reactor.core.publisher.Mono;
 
 @Service
 @AllArgsConstructor
-public class VideosServiceImpl implements VideosService {
+public class VideosUsecaseImpl implements VideosUsecase {
 
     private final VideosRepository videosRepository;
     private VideosMapper videosMapper;

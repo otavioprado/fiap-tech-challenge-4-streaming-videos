@@ -1,11 +1,11 @@
-package com.challenge.streamingvideos.service;
+package com.challenge.streamingvideos.usecase;
 
 import com.challenge.streamingvideos.dto.VideosDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import reactor.core.publisher.Mono;
 
-public interface VideosService {
+public interface VideosUsecase {
     //buscar todos
     Mono<Page<VideosDto>> findAll(Pageable pageable);
 
