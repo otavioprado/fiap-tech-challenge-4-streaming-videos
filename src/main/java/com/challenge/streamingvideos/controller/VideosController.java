@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
@@ -40,6 +41,11 @@ public class VideosController {
     @DeleteMapping()
     public Mono<Void> deletarTodos() {
         return videosService.deleteAll();
+    }
+
+    @GetMapping("/por-categoria")
+    public Flux<VideosDto> getVideosPorCategoria(@RequestParam("categoria") String categoria) {
+        return videosService.findByCategoria(categoria);
     }
 
 }

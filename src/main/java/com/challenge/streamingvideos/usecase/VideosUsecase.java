@@ -3,6 +3,7 @@ package com.challenge.streamingvideos.usecase;
 import com.challenge.streamingvideos.dto.VideosDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 public interface VideosUsecase {
@@ -20,5 +21,8 @@ public interface VideosUsecase {
 
     //excluir video
     Mono<Void> deleteAll();
+
+
+    Flux<VideosDto> findByCategoria(String categoria);
 
 }

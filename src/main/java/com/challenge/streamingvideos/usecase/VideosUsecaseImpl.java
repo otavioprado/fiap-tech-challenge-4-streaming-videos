@@ -2,13 +2,18 @@ package com.challenge.streamingvideos.usecase;
 
 import com.challenge.streamingvideos.dto.VideosDto;
 import com.challenge.streamingvideos.mapper.VideosMapper;
+import com.challenge.streamingvideos.model.VideosModel;
 import com.challenge.streamingvideos.repository.VideosRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+
+import java.util.List;
+import java.util.stream.Stream;
 
 @Service
 @AllArgsConstructor
@@ -25,6 +30,11 @@ public class VideosUsecaseImpl implements VideosUsecase {
                 .zipWith(this.videosRepository.count())
                 .map(p -> new PageImpl<>(p.getT1(), pageable, p.getT2()))
                 .map(page -> page.map(videosMapper::toDTO));
+    }
+
+    @Override
+    public Flux<VideosDto> findByCategoria(String categoria) {
+        return videosRepository.findByCategoria(categoria).map(videosMapper::toDTO);
     }
 
     //bucar por id

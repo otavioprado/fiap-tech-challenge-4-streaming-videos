@@ -19,10 +19,5 @@ public class VideosModel {
     private String descricao;
     private String urlVideo;
     private LocalDateTime dataPublicacao;
-
-//    private List<VideosModel> videos = new ArrayList<>();
-//
-//    public VideosModel (String idCatalogo, List<VideosModel> videos){
-//        this.videos.addAll(videos);
-//    }
+    private String categoria;
 }

@@ -70,6 +70,39 @@
 			"response": []
 		},
 		{
+			"name": "Consultar Vídeos por categoria",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/videos?page=0&size=3&sort=dataPublicacao,asc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"videos"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "3"
+						},
+						{
+							"key": "sort",
+							"value": "dataPublicacao,asc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Consultar Vídeos",
 			"request": {
 				"method": "DELETE",
@@ -95,7 +128,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\": \"1\",\r\n    \"titulo\": \"Título do vídeo 1\",\r\n    \"descricao\": \"Descrição do vídeo 1\",\r\n    \"urlVideo\": \"https://www.exemplo.com/video1\",\r\n    \"dataPublicacao\": \"2024-01-09T15:30:00\"\r\n}",
+					"raw": "{\r\n    \"id\": \"7\",\r\n    \"titulo\": \"Título do vídeo 1\",\r\n    \"descricao\": \"Descrição do vídeo 1\",\r\n    \"urlVideo\": \"https://www.exemplo.com/video1\",\r\n    \"dataPublicacao\": \"2024-01-14T15:30:00\",\r\n    \"categoria\": \"categoria1\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

@@ -12,5 +12,6 @@ public class VideosDto {
     private String descricao;
     private String urlVideo;
     private String dataPublicacao;
+    private String categoria;
 
 }
