@@ -2,6 +2,7 @@ package com.challenge.streamingvideos.controller;
 
 import com.challenge.streamingvideos.dto.VideosDto;
 import com.challenge.streamingvideos.usecase.VideosUsecaseImpl;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -13,6 +14,7 @@ import reactor.core.publisher.Mono;
 @RestController
 @RequestMapping("/videos")
 @RequiredArgsConstructor
+@AllArgsConstructor
 public class VideosController {
 
     @Autowired
