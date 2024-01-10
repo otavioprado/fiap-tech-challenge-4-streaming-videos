@@ -1,14 +1,13 @@
 package com.challenge.streamingvideos.service;
 
 import com.challenge.streamingvideos.dto.VideosDto;
-
-import com.challenge.streamingvideos.model.VideosModel;
-import reactor.core.publisher.Flux;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import reactor.core.publisher.Mono;
 
 public interface VideosService {
     //buscar todos
-    Flux<VideosDto> findAll();
+    Mono<Page<VideosDto>> findAll(Pageable pageable);
 
     //bucar por id
     Mono<VideosDto> findById(String id);

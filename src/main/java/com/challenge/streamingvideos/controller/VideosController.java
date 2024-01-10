@@ -1,10 +1,12 @@
 package com.challenge.streamingvideos.controller;
+
 import com.challenge.streamingvideos.dto.VideosDto;
 import com.challenge.streamingvideos.service.VideosServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
-import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
@@ -16,8 +18,8 @@ public class VideosController {
     private VideosServiceImpl videosService;
 
     @GetMapping
-    public Flux<VideosDto> getVideos() {
-        return videosService.findAll();
+    public Mono<Page<VideosDto>> getVideos(Pageable pageable) {
+        return videosService.findAll(pageable);
     }
 
     @GetMapping(value = "/{id}")
@@ -37,9 +39,7 @@ public class VideosController {
 
     @DeleteMapping()
     public Mono<Void> deletarTodos() {
-        videosService.deleteAll();
         return videosService.deleteAll();
-
     }
 
 }

@@ -2,27 +2,29 @@ package com.challenge.streamingvideos.service;
 
 import com.challenge.streamingvideos.dto.VideosDto;
 import com.challenge.streamingvideos.mapper.VideosMapper;
-import com.challenge.streamingvideos.model.VideosModel;
 import com.challenge.streamingvideos.repository.VideosRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @Service
 @AllArgsConstructor
 public class VideosServiceImpl implements VideosService {
 
-    @Autowired
     private final VideosRepository videosRepository;
     private VideosMapper videosMapper;
 
-
     //buscar todos
     @Override
-    public Flux<VideosDto> findAll() {
-        return videosRepository.findAll().map(videosMapper::toDTO);
+    public Mono<Page<VideosDto>> findAll(Pageable pageable) {
+        return this.videosRepository.findAllBy(pageable)
+                .collectList()
+                .zipWith(this.videosRepository.count())
+                .map(p -> new PageImpl<>(p.getT1(), pageable, p.getT2()))
+                .map(page -> page.map(videosMapper::toDTO));
     }
 
     //bucar por id
