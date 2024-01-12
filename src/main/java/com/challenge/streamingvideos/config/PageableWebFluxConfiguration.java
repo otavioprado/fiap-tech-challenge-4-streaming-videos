@@ -1,4 +1,4 @@
-package com.challenge.streamingvideos;
+package com.challenge.streamingvideos.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.web.ReactivePageableHandlerMethodArgumentResolver;

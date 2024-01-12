@@ -20,4 +20,5 @@ public class VideosModel {
     private String urlVideo;
     private LocalDateTime dataPublicacao;
     private String categoria;
+    private Boolean favorito;
 }

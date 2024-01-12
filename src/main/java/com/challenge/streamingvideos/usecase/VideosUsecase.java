@@ -25,4 +25,6 @@ public interface VideosUsecase {
 
     Flux<VideosDto> findByCategoria(String categoria);
 
+    Flux<VideosDto> recommendVideosBasedOnFavorites();
+
 }

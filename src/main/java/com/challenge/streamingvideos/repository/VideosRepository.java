@@ -20,4 +20,6 @@ public interface VideosRepository extends ReactiveMongoRepository<VideosModel, S
 
     Flux<VideosModel> findByCategoria(String categoria);
 
+    Flux<VideosModel> findByCategoriaIn(List<String> categorias);
+
 }

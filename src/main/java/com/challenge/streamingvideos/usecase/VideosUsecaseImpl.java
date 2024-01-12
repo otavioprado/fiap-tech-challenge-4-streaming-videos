@@ -13,7 +13,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.util.List;
-import java.util.stream.Stream;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -30,6 +30,22 @@ public class VideosUsecaseImpl implements VideosUsecase {
                 .zipWith(this.videosRepository.count())
                 .map(p -> new PageImpl<>(p.getT1(), pageable, p.getT2()))
                 .map(page -> page.map(videosMapper::toDTO));
+    }
+
+    @Override
+    public Flux<VideosDto> recommendVideosBasedOnFavorites() {
+        return videosRepository.findAll()
+                .filter(v -> v.getFavorito() == Boolean.TRUE)
+                .collectList()
+                .flatMapMany(favoriteVideos -> {
+                    // Mapeia os vídeos favoritos para uma lista de categorias
+                    List<String> favoriteCategories = favoriteVideos.stream()
+                            .map(VideosModel::getCategoria)
+                            .collect(Collectors.toList());
+
+                    // Use a lista de categorias para buscar os vídeos correspondentes
+                    return videosRepository.findByCategoriaIn(favoriteCategories).mapNotNull(videosMapper::toDTO);
+                });
     }
 
     @Override

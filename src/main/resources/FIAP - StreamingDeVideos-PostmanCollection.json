@@ -103,6 +103,39 @@
 			"response": []
 		},
 		{
+			"name": "Consultar Vídeos recomendados",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/videos?page=0&size=3&sort=dataPublicacao,asc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"videos"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "3"
+						},
+						{
+							"key": "sort",
+							"value": "dataPublicacao,asc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Consultar Vídeos",
 			"request": {
 				"method": "DELETE",

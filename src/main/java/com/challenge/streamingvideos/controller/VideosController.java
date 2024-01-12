@@ -50,4 +50,9 @@ public class VideosController {
         return videosService.findByCategoria(categoria);
     }
 
+    @GetMapping("/recomendados")
+    public Flux<VideosDto> getVideosRecomendadosPorVideosFavoritados() {
+        return videosService.recommendVideosBasedOnFavorites();
+    }
+
 }

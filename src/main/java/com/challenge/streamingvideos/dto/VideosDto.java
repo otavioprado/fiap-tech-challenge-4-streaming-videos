@@ -16,5 +16,6 @@ public class VideosDto {
     private String urlVideo;
     private String dataPublicacao;
     private String categoria;
+    private Boolean favorito;
 
 }
