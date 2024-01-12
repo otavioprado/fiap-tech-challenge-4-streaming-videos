@@ -1,5 +1,6 @@
 package com.challenge.streamingvideos.usecase;
 
+import com.challenge.streamingvideos.dto.StatisticsDto;
 import com.challenge.streamingvideos.dto.VideosDto;
 import com.challenge.streamingvideos.mapper.VideosMapper;
 import com.challenge.streamingvideos.model.VideosModel;
@@ -30,6 +31,13 @@ public class VideosUsecaseImpl implements VideosUsecase {
                 .zipWith(this.videosRepository.count())
                 .map(p -> new PageImpl<>(p.getT1(), pageable, p.getT2()))
                 .map(page -> page.map(videosMapper::toDTO));
+    }
+
+    @Override
+    public Mono<StatisticsDto> getVideoStatistics() {
+        return videosRepository.count()
+                .flatMap(totalVideos -> videosRepository.countByFavorito(true)
+                        .map(favoriteVideos -> new StatisticsDto(totalVideos, favoriteVideos)));
     }
 
     @Override

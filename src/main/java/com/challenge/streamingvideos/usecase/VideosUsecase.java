@@ -1,5 +1,6 @@
 package com.challenge.streamingvideos.usecase;
 
+import com.challenge.streamingvideos.dto.StatisticsDto;
 import com.challenge.streamingvideos.dto.VideosDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -24,6 +25,8 @@ public interface VideosUsecase {
 
 
     Flux<VideosDto> findByCategoria(String categoria);
+
+    Mono<StatisticsDto> getVideoStatistics();
 
     Flux<VideosDto> recommendVideosBasedOnFavorites();
 

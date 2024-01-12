@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "bebbfc48-3a2c-4bf3-acc5-b3f72f35bd43",
+		"_postman_id": "74645b71-da8d-442b-ada0-d45c96a995f2",
 		"name": "OMDB",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "2416879"
@@ -64,6 +64,25 @@
 							"key": "sort",
 							"value": "dataPublicacao,asc"
 						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar Statistics",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/statistics",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"statistics"
 					]
 				}
 			},
@@ -161,7 +180,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\": \"7\",\r\n    \"titulo\": \"Título do vídeo 1\",\r\n    \"descricao\": \"Descrição do vídeo 1\",\r\n    \"urlVideo\": \"https://www.exemplo.com/video1\",\r\n    \"dataPublicacao\": \"2024-01-14T15:30:00\",\r\n    \"categoria\": \"categoria1\"\r\n}",
+					"raw": "{\r\n    \"titulo\": \"Título do vídeo 1\",\r\n    \"descricao\": \"Descrição do vídeo 1\",\r\n    \"urlVideo\": \"https://www.exemplo.com/video1\",\r\n    \"dataPublicacao\": \"2024-01-14T15:30:00\",\r\n    \"categoria\": \"categoria1\",\r\n    \"favorito\": false\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
