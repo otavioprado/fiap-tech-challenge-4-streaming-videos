@@ -12,12 +12,13 @@ import java.util.List;
 
 @Repository
 public interface VideosRepository extends ReactiveMongoRepository<VideosModel, String> {
+    //Buscar por titulo
     boolean existsByTitulo(String titulo);
-    Mono<VideosModel> findByTitulo(String titulo);
+    //
     Flux<VideosModel> findAll();
-
+    //
     Flux<VideosModel> findAllBy(Pageable pageable);
-
+    //Buscar por categoria
     Flux<VideosModel> findByCategoria(String categoria);
 
     Flux<VideosModel> findByCategoriaIn(List<String> categorias);
