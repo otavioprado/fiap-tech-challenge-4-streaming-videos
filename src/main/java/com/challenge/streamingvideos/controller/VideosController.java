@@ -2,6 +2,7 @@ package com.challenge.streamingvideos.controller;
 
 import com.challenge.streamingvideos.dto.VideosDto;
 import com.challenge.streamingvideos.usecase.VideosUsecaseImpl;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,12 +32,12 @@ public class VideosController {
     }
 
     @PostMapping
-    public Mono<VideosDto> save(@RequestBody Mono<VideosDto> videosDtoMono) {
+    public Mono<VideosDto> save(@Valid @RequestBody Mono<VideosDto> videosDtoMono) {
         return videosService.save(videosDtoMono);
     }
 
     @PutMapping(value = "/{id}")
-    public Mono<VideosDto> updateVideo(@RequestBody Mono<VideosDto> videosDtoMono, @PathVariable String id) {
+    public Mono<VideosDto> updateVideo(@Valid @RequestBody Mono<VideosDto> videosDtoMono, @PathVariable String id) {
         return videosService.update(videosDtoMono, id);
     }
 
