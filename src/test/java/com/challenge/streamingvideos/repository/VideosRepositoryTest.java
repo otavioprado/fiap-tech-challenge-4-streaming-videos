@@ -6,23 +6,27 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class VideosRepositoryTest {
     @Test
-    void deveBuscarPorTitulo(){
+    void deveBuscarTodosOsVideosRepository(){
+
         fail("Teste não implementado!");
     }
     @Test
-    void deveBuscarPorTitulo(){
+    void deveBuscarTodosOsVideosPaginadosRepository(){
+
         fail("Teste não implementado!");
     }
     @Test
-    void deveBuscarPorTitulo(){
+    void deveBuscarPorCategoriaRepository(){
         fail("Teste não implementado!");
     }
     @Test
-    void deveBuscarPorTitulo(){
+    void deveBuscarPorListaDeCategoriaRepository()
+    {
         fail("Teste não implementado!");
     }
     @Test
-    void deveBuscarPorTitulo(){
+    void deveContarAQuantidadeDeFavoritosRepository(){
+
         fail("Teste não implementado!");
     }
 }

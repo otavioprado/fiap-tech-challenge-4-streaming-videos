@@ -18,7 +18,7 @@ import java.util.List;
 
 import static org.mockito.Mockito.*;
 
-public class VideosUsecaseImplTest {
+class VideosUsecaseImplTest {
 
     private VideosUsecaseImpl videosUsecase;
     private VideosRepository videosRepository;
@@ -111,7 +111,7 @@ public class VideosUsecaseImplTest {
         verify(videosRepository, times(1)).findById(videoId);
         verify(videosMapper, times(1)).toDTO(video1);
     }
-
+    //TODO: PRECISA CRIAR UMA EXCESSÃO CASO NÃO ENCONTRE O ID
     @Test
     public void testSave() {
         // Configuração do mock

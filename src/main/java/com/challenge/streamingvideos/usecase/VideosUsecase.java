@@ -9,7 +9,6 @@ import reactor.core.publisher.Mono;
 
 public interface VideosUsecase {
 
-
     //bucar por id
     Mono<VideosDto> findById(String id);
 
@@ -25,13 +24,12 @@ public interface VideosUsecase {
     // buscar categoria
     Flux<VideosDto> findByCategoria(String categoria);
 
-<<<<<<< Updated upstream
+
     Mono<StatisticsDto> getVideoStatistics();
 
     Flux<VideosDto> recommendVideosBasedOnFavorites();
 
-=======
+
     //buscar todos
     Mono<Page<VideosDto>> findAll(Pageable pageable);
->>>>>>> Stashed changes
 }

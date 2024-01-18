@@ -14,15 +14,15 @@ import java.util.List;
 public interface VideosRepository extends ReactiveMongoRepository<VideosModel, String> {
     //Buscar por titulo
     boolean existsByTitulo(String titulo);
-    //
+    // Busca todos os vídeos
     Flux<VideosModel> findAll();
-    //
+    // Busca todos os vídeos paginados
     Flux<VideosModel> findAllBy(Pageable pageable);
     //Buscar por categoria
     Flux<VideosModel> findByCategoria(String categoria);
-
+    // Busca por lista de categoria
     Flux<VideosModel> findByCategoriaIn(List<String> categorias);
-
+    // Conta a quantidade de favoritos
     Mono<Long> countByFavorito(boolean favorito);
 
 }

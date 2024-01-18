@@ -2,7 +2,7 @@
 
 ## Descrição
 
-Streaming de Vídeos é um projeto de streaming de vídeos que permite gerenciar vídeos de forma eficiente.
+Streaming de Vídeos é um projeto que busca gerenciar vídeos de forma eficiente.
 
 ## Arquitetura
 
@@ -29,6 +29,7 @@ A aplicação é construída usando a seguinte arquitetura:
 - Springdoc OpenAPI
 - MapStruct
 - Lombok
+- JUnit
 
 ## Guia de Uso
 
