@@ -2,7 +2,7 @@
 
 ## Descrição
 
-Streaming de Vídeos é um projeto que busca gerenciar vídeos de forma eficiente.
+Streaming de Vídeos é um projeto de streaming de vídeos que permite gerenciar vídeos de forma eficiente.
 
 ## Arquitetura
 
@@ -24,19 +24,21 @@ A aplicação é construída usando a seguinte arquitetura:
 
 - Java 21
 - Spring Boot 3.1.5
+- Docker
 - MongoDB
 - JSON Web Tokens (JWT)
 - Springdoc OpenAPI
 - MapStruct
 - Lombok
-- JUnit
 
 ## Guia de Uso
 
 ### Pré-requisitos
 
-- Certifique-se de ter o Java instalado em sua máquina.
-- Você também precisa ter uma instância do MongoDB configurada e acessível.
+- Certifique-se de ter os softwares abaixo em sua máquida:
+    - Java 21.
+    - Docker.
+    - mvn.
 
 ### Configuração
 
@@ -50,12 +52,15 @@ Navegue para o diretório da aplicação:
 ````bash
 cd streaming-de-videos
 ````
-Inicie o servidor:
-
+Inicie o mongo-db via docker:
+````bash
+docker compose up -d
+````
+Inicie a app:
 ````bash
 mvn spring-boot:run
 ````
-A aplicação estará disponível em http://localhost:3000 no seu navegador.
+A aplicação estará disponível em http://localhost:8080 no seu navegador.
 
 ## Funcionalidades
 * Navegação de catálogo de vídeos.
@@ -65,3 +70,5 @@ A aplicação estará disponível em http://localhost:3000 no seu navegador.
 # Contribuindo
 Fique à vontade para contribuir para este projeto. Basta fazer um fork e enviar suas solicitações.
 
+# Base de categoria
+Obtida via https://pt.wikipedia.org/wiki/Lista_de_g%C3%AAneros_cinematogr%C3%A1ficos
