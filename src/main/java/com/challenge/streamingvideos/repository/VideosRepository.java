@@ -12,8 +12,6 @@ import java.util.List;
 
 @Repository
 public interface VideosRepository extends ReactiveMongoRepository<VideosModel, String> {
-    //Buscar por titulo
-    boolean existsByTitulo(String titulo);
     // Busca todos os vídeos
     Flux<VideosModel> findAll();
     // Busca todos os vídeos paginados

@@ -16,6 +16,7 @@ import reactor.core.publisher.Mono;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.bson.assertions.Assertions.fail;
 import static org.mockito.Mockito.*;
 
 class VideosUsecaseImplTest {
@@ -174,4 +175,4 @@ class VideosUsecaseImplTest {
         // Verificar se o método do mock foi chamado
         verify(videosRepository, times(1)).deleteAll();
     }
-}
+  }
