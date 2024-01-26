@@ -19,16 +19,14 @@ public interface VideosUsecase {
     Mono<VideosDto> update(Mono<VideosDto> videosDtoMono, String id);
 
     //excluir video
-    Mono<Void> deleteAll();
+    Mono<Void> delete(String id);
 
     // buscar categoria
     Flux<VideosDto> findByCategoria(String categoria);
 
-
     Mono<StatisticsDto> getVideoStatistics();
 
     Flux<VideosDto> recommendVideosBasedOnFavorites();
-
 
     //buscar todos
     Mono<Page<VideosDto>> findAll(Pageable pageable);

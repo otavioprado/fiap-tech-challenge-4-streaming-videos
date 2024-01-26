@@ -16,7 +16,6 @@ import reactor.core.publisher.Mono;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.bson.assertions.Assertions.fail;
 import static org.mockito.Mockito.*;
 
 class VideosUsecaseImplTest {
@@ -33,7 +32,7 @@ class VideosUsecaseImplTest {
     }
 
     @Test
-    public void testFindAll() {
+    void testFindAll() {
         // Configuração do mock
         Pageable pageable = Pageable.ofSize(10).withPage(1);
         VideosModel video1 = new VideosModel();
@@ -61,7 +60,7 @@ class VideosUsecaseImplTest {
     }
 
     @Test
-    public void testFindByCategoria() {
+    void testFindByCategoria() {
         // Configuração do mock
         String categoria = "Categoria 1";
         VideosModel video1 = new VideosModel();
@@ -92,7 +91,7 @@ class VideosUsecaseImplTest {
     }
 
     @Test
-    public void testFindById() {
+    void testFindById() {
         // Configuração do mock
         String videoId = "1";
         VideosModel video1 = new VideosModel();
@@ -114,7 +113,7 @@ class VideosUsecaseImplTest {
     }
     //TODO: PRECISA CRIAR UMA EXCESSÃO CASO NÃO ENCONTRE O ID
     @Test
-    public void testSave() {
+    void testSave() {
         // Configuração do mock
         VideosDto videoDtoToSave = new VideosDto();
         VideosModel videoToSave = new VideosModel();
@@ -138,7 +137,7 @@ class VideosUsecaseImplTest {
     }
 
     @Test
-    public void testUpdate() {
+    void testUpdate() {
         // Configuração do mock
         String videoId = "1";
         VideosDto videoDtoToUpdate = new VideosDto();
@@ -165,14 +164,14 @@ class VideosUsecaseImplTest {
     }
 
     @Test
-    public void testDeleteAll() {
+    void testDeleteAll() {
         // Configuração do mock
         when(videosRepository.deleteAll()).thenReturn(Mono.empty());
 
         // Executar o método e fazer asserções
-        videosUsecase.deleteAll().subscribe();
+        videosUsecase.delete("1");
 
         // Verificar se o método do mock foi chamado
-        verify(videosRepository, times(1)).deleteAll();
+        verify(videosRepository, times(1)).deleteById(anyString());
     }
   }

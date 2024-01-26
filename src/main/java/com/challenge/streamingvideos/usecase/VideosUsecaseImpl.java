@@ -89,7 +89,7 @@ public class VideosUsecaseImpl implements VideosUsecase {
 
     //excluir video
     @Override
-    public Mono<Void> deleteAll() {
-        return videosRepository.deleteAll();
+    public Mono<Void> delete(String id) {
+        return videosRepository.deleteById(id);
     }
 }

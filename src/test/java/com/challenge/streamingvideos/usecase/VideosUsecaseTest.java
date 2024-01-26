@@ -1,34 +1,20 @@
 package com.challenge.streamingvideos.usecase;
 
-import com.challenge.streamingvideos.controller.StatisticsController;
-import com.challenge.streamingvideos.controller.VideosController;
-import com.challenge.streamingvideos.dto.StatisticsDto;
 import com.challenge.streamingvideos.dto.VideosDto;
 import com.challenge.streamingvideos.mapper.VideosMapper;
 import com.challenge.streamingvideos.model.VideosModel;
 import com.challenge.streamingvideos.repository.VideosRepository;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
-import org.springframework.http.HttpInputMessage;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
-import static reactor.core.publisher.Mono.when;
 
 class VideosUsecaseTest {
 
@@ -123,10 +109,10 @@ class VideosUsecaseTest {
         Mockito.when(videosRepository.deleteAll()).thenReturn(Mono.empty());
 
         // Executar o método e fazer asserções
-        videosUsecase.deleteAll().subscribe();
+        videosUsecase.delete("1");
 
         // Verificar se o método do mock foi chamado
-        verify(videosRepository, times(1)).deleteAll();
+        verify(videosRepository, times(1)).deleteById(anyString());
     }
     // Buscar por categoria
     @Test
@@ -170,7 +156,6 @@ class VideosUsecaseTest {
         video1.setTitulo("Harry Potter 1");
         List<VideosModel> videosList = new ArrayList<>();
         videosList.add(video1);
-        Page<VideosModel> page = new PageImpl<>(videosList);
 
         Mockito.when(videosRepository.findAllBy(pageable)).thenReturn(Flux.just(video1));
         Mockito.when(videosRepository.count()).thenReturn(Mono.just(1L));
