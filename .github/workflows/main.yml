@@ -16,7 +16,7 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v2
         with:
-          distribution: 'jdk'
+          distribution: 'temurin'
           java-version: '21'
 
       - name: Build with Maven
@@ -33,7 +33,7 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v2
         with:
-          distribution: 'jdk'
+          distribution: 'temurin'
           java-version: '21'
 
       - name: Run Tests
