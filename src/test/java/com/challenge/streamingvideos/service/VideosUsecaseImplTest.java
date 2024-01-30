@@ -183,7 +183,7 @@ class VideosUsecaseImplTest {
         StatisticsDto dto = new StatisticsDto(1, 3);
         when(videosRepository.count()
                 .flatMap(totalVideos -> videosRepository.countByFavorito(true)
-                .map(favoriteVideos -> new StatisticsDto(totalVideos, favoriteVideos)))
-                .thenReturn(Mono.just(dto)));
+                .map(favoriteVideos -> new StatisticsDto(totalVideos, favoriteVideos))))
+                .thenReturn(Mono.just(dto));
     }
   }
