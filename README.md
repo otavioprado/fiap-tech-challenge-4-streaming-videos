@@ -12,7 +12,7 @@ A aplicação é construída usando a seguinte arquitetura:
   - Spring Boot 3.1.5 .
   - Java 21.
   - Spring WebFlux 3.1.5 para expor endpoints reativos.
-  - Spring Data 3.1.5 para percistência com MongoDB.
+  - Spring Data 3.1.5 para persistência com MongoDB.
   - Docker Desktop para execução do container do MongoDB.
 - **Banco de Dados**: 
   - MongoDB.
@@ -21,7 +21,7 @@ A aplicação é construída usando a seguinte arquitetura:
 
 - **Java e Spring Boot**: Escolhemos Java e Spring Boot devido à sua eficiência, robustez e facilidade de desenvolvimento para criar uma aplicação de streaming de vídeos escalável.
 - **MongoDB**: Selecionamos o MongoDB devido à sua flexibilidade de esquema e escalabilidade horizontal, o que é crucial para armazenar metadados de vídeo.
-- **Autenticação**: Não implementado: Decidimos não implementar a autenticação pelo motivo de ja termos realizado na fases anterioes em outro TechChallenge, entendemos a partir material de requisitos, que não ficou obrigatório o desenvolvimento. porém, poderiamos ter utilizado o Spring Security com JWT e armazenar as informações de catalogo favorito persistindo em banco de dados.
+- **Autenticação**: Não implementado: Decidimos não implementar a autenticação pelo motivo de ja termos realizado em TechChallenges anteriores, entendemos a partir material de requisitos, que não ficou obrigatório o desenvolvimento. Porém, poderiamos ter utilizado o Spring Security com JWT e armazenar as informações de catálogo favorito persistindo em banco de dados.
 
 ### Tecnologias Utilizadas no Projeto
 
@@ -37,7 +37,7 @@ A aplicação é construída usando a seguinte arquitetura:
 
 ### Pré-requisitos
 
-- Certifique-se de ter os softwares abaixo em sua máquida:
+- Certifique-se de ter os softwares abaixo em sua máquina:
     - Java 21.
     - Docker.
     - mvn.
