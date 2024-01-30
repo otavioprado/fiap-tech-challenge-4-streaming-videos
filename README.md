@@ -4,6 +4,10 @@
 
 Streaming de Vídeos é um projeto de streaming de vídeos que permite gerenciar vídeos de forma eficiente.
 
+**LINK ALTERNATIVO DO VÍDEO DE APRESENTAÇÃO:**
+fiap-tech-challenge-4-streaming-videos/video
+/VideoApresentacaoAPI-StreamingVideos.mp4
+
 ## Arquitetura
 
 A aplicação é construída usando a seguinte arquitetura:
