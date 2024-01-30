@@ -1,5 +1,6 @@
 package com.challenge.streamingvideos.service;
 
+import com.challenge.streamingvideos.dto.StatisticsDto;
 import com.challenge.streamingvideos.dto.VideosDto;
 import com.challenge.streamingvideos.mapper.VideosMapper;
 import com.challenge.streamingvideos.model.VideosModel;
@@ -173,5 +174,16 @@ class VideosUsecaseImplTest {
 
         // Verificar se o método do mock foi chamado
         verify(videosRepository, times(1)).deleteById(anyString());
+    }
+
+    @Test
+    void testGetVideoStatistics(){
+        when(videosRepository.count()).thenReturn(Mono.just(Long.valueOf(2)));
+
+        StatisticsDto dto = new StatisticsDto(1, 3);
+        when(videosRepository.count()
+                .flatMap(totalVideos -> videosRepository.countByFavorito(true)
+                .map(favoriteVideos -> new StatisticsDto(totalVideos, favoriteVideos)))
+                .thenReturn(Mono.just(dto)));
     }
   }
