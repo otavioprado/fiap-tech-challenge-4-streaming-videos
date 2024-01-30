@@ -8,17 +8,20 @@ Streaming de Vídeos é um projeto de streaming de vídeos que permite gerenciar
 
 A aplicação é construída usando a seguinte arquitetura:
 
-- **Backend**: Implementado em Java, utilizando o framework Spring Boot para criar APIs RESTful para gerenciar o catálogo de vídeos e usuários.
-- **Banco de Dados**: Utilizamos o MongoDB para armazenar metadados de vídeos, informações de usuários e preferências.
-- **Autenticação**: A autenticação é tratada usando JSON Web Tokens (JWT) para garantir a segurança das contas dos usuários.
-- **Hospedagem**: O aplicativo e o banco de dados estão hospedados na AWS (Amazon Web Services) para garantir escalabilidade e alta disponibilidade do serviço de streaming.
+- **Frameworks**:
+  - Spring Boot 3.1.5 .
+  - Java 21.
+  - Spring WebFlux 3.1.5 para expor endpoints reativos.
+  - Spring Data 3.1.5 para percistência com MongoDB.
+  - Docker Desktop para execução do container do MongoDB.
+- **Banco de Dados**: 
+  - MongoDB.
 
 ## Decisões Técnicas Relevantes
 
 - **Java e Spring Boot**: Escolhemos Java e Spring Boot devido à sua eficiência, robustez e facilidade de desenvolvimento para criar uma aplicação de streaming de vídeos escalável.
 - **MongoDB**: Selecionamos o MongoDB devido à sua flexibilidade de esquema e escalabilidade horizontal, o que é crucial para armazenar metadados de vídeo.
-- **JSON Web Tokens (JWT)**: Usamos JWT para autenticação, pois oferece uma maneira segura de gerenciar sessões de usuário sem a necessidade de armazenar senhas no banco de dados.
-- **AWS**: A AWS nos fornece flexibilidade e escalabilidade, permitindo dimensionar nosso serviço de streaming de acordo com a demanda dos usuários.
+- **Autenticação**: Não implementado: Decidimos não implementar a autenticação pelo motivo de ja termos realizado na fases anterioes em outro TechChallenge, entendemos a partir material de requisitos, que não ficou obrigatório o desenvolvimento. porém, poderiamos ter utilizado o Spring Security com JWT e armazenar as informações de catalogo favorito persistindo em banco de dados.
 
 ### Tecnologias Utilizadas no Projeto
 
@@ -26,8 +29,7 @@ A aplicação é construída usando a seguinte arquitetura:
 - Spring Boot 3.1.5
 - Docker
 - MongoDB
-- JSON Web Tokens (JWT)
-- Springdoc OpenAPI
+- Springdoc OpenAPI WebFlux
 - MapStruct
 - Lombok
 
@@ -40,7 +42,7 @@ A aplicação é construída usando a seguinte arquitetura:
     - Docker.
     - mvn.
 
-### Configuração
+### Configuração                                                                    
 
 Clone este repositório:
 
@@ -61,11 +63,33 @@ Inicie a app:
 mvn spring-boot:run
 ````
 A aplicação estará disponível em http://localhost:8080 no seu navegador.
-
-## Funcionalidades
-* Navegação de catálogo de vídeos.
-* Adicione vídeos à sua lista de favoritos.
-* Consulte o histórico de exibição.
+O Swagger estará disponível em http://localhost:8080/webjars/swagger-ui/index.html no seu navegador
+## Requisitos Funcionais
+- Criação, atualização, listagem e exclusão de vídeos.
+- Os vídeos devem conter os seguintes campos: título, descrição, URL e data de
+   publicação.
+- A listagem de vídeos deve ser paginada e ordenável por data de publicação.
+- Implementar filtros de busca por título e data de publicação na listagem.
+- Implementar sistema de marcação de vídeos como favoritos.
+-  Implementar categorias para os vídeos e permitir a filtragem por categoria na
+   listagem.
+- Implementar um sistema de recomendação de vídeos com base nos favoritos do
+   usuário.
+- Implementar um endpoint para estatísticas, mostrando a quantidade total de vídeos,
+   a quantidade de vídeos favoritados e a média de visualizações.
+## Requisitos Técnicos
+- Utilização do Spring WebFlux para a criação de endpoints reativos.
+- Utilização do Spring Boot para configuração e inicialização da aplicação.
+- Utilização do Spring Data para a camada de persistência com suporte a bancos de
+   dados reativos (por exemplo, MongoDB).
+- Implementar a arquitetura Clean Architecture, separando a aplicação em camadas:
+   Controllers, Services, Use Cases, Repositories.
+- Implementar testes unitários e de integração para as diferentes camadas da
+   aplicação, com cobertura de testes de pelo menos 80% do código.
+- Utilizar boas práticas de nomenclatura, organização de código e comentários quando
+   necessário.
+- Utilizar validações de entrada nos endpoints.
+- Gerenciar dependências utilizando o gerenciador de pacotes Maven ou Gradle.
 
 # Contribuindo
 Fique à vontade para contribuir para este projeto. Basta fazer um fork e enviar suas solicitações.
